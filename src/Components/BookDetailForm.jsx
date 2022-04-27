@@ -21,6 +21,12 @@ const BookDetailForm = (props) => {
       justifyContent: "flex-start",
       marginTop: 30,
     },
+    modeTxtDisplay: {
+      textAlign: "center",
+      fontWeight: "bold",
+      fontSize: 25,
+      marginTop: 20,
+    },
     fieldName: {
       textAlign: "center",
       fontWeight: "bold",
@@ -47,14 +53,12 @@ const BookDetailForm = (props) => {
       textAlign: "center",
     },
     counterContainer: {
-      //flex: 0.25,
       flexDirection: "row",
       justifyContent: "space-evenly",
       margin: 1,
       paddingTop: 20,
     },
     pickerField: {
-      //width: 200,
       margin: 20,
       marginTop: 20,
       marginBottom: 50,
@@ -70,11 +74,11 @@ const BookDetailForm = (props) => {
   const [ownVolume, setOwnVolume] = useState("");
   const [totalVolume, setTotalVolume] = useState("");
   const [status, setStatus] = useState("onGoing");
+
   useEffect(() => {
     const mode = bookId != "" ? "edit" : "create";
     setFormMode(mode);
     if (mode == "edit") {
-      console.log(formMode);
       loadBook();
     }
   }, [bookId]);
@@ -103,7 +107,9 @@ const BookDetailForm = (props) => {
 
   return (
     <View style={styleSheet.container}>
-      <Text>{formMode.toUpperCase() + " BOOK"}</Text>
+      <Text style={componentStyle.modeTxtDisplay}>
+        {formMode.toUpperCase() + " BOOK"}
+      </Text>
       <View style={componentStyle.formContainer}>
         <View>
           <Text style={componentStyle.fieldName}>Book name</Text>

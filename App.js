@@ -14,7 +14,7 @@ export default function App() {
           <Route
             path="/bookDetail"
             element={<BookDetailView styleSheet={styles} />}
-          ></Route>
+          />
         </Routes>
       </SafeAreaView>
     </NativeRouter>

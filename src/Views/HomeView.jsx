@@ -25,7 +25,6 @@ const HomeView = (props) => {
   const navigation = useNavigate();
 
   const disconnect = () => {
-    //Clear store
     navigation("/");
   };
 
