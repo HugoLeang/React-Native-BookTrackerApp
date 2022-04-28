@@ -10,9 +10,12 @@ const componentStyle = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    backgroundColor: "#fff",
+    elevation: 4,
+    margin: 5,
   },
   volumeContainer: {
-    margin: 1.5,
+    margin: 3.5,
     backgroundColor: "#2196F3",
     borderRadius: 3,
     padding: 20,

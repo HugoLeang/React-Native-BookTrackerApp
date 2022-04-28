@@ -34,3 +34,24 @@ export const signupFormRules = {
     },
   },
 };
+
+export const bookFormRules = {
+  bookName: {
+    presence: {
+      allowEmpty: false,
+      message: "^Book name is needed\n",
+    },
+  },
+  ownVolume: {
+    presence: {
+      allowEmpty: false,
+      message: "^Indicate the volume owned \n",
+    },
+  },
+  totalVolume: {
+    presence: {
+      allowEmpty: false,
+      message: "^Indicate the total volume\n",
+    },
+  },
+};

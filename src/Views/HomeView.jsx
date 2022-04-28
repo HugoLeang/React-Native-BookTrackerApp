@@ -18,7 +18,7 @@ const HomeView = (props) => {
       backgroundColor: "#FF3535",
       padding: 10,
       borderRadius: 30,
-      elevation: 50,
+      elevation: 3,
     },
   });
 
@@ -31,8 +31,7 @@ const HomeView = (props) => {
   return (
     <View style={styleSheet.container}>
       <View style={viewStyle.topBarContainer}>
-        <Text style={styleSheet.textTitle}>Home</Text>
-
+        <Text style={styleSheet.textTitle}>Books</Text>
         <Icon
           style={viewStyle.logoutBtnImg}
           size={40}

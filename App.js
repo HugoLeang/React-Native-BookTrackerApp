@@ -1,4 +1,4 @@
-import { Platform, StatusBar, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { NativeRouter, Route, Routes } from "react-router-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import HomeView from "./src/Views/HomeView";
