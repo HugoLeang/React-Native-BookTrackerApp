@@ -1,8 +1,11 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import LoginForm from "../Components/LoginForm";
 import SignupForm from "../Components/SignupForm";
+import { createTransition, SlideRight } from "react-native-transition";
+
 const LoginView = (props) => {
+  const Transition = createTransition(SlideRight);
   const mode = {
     LOGIN: "login",
     SIGNUP: "signup",
@@ -46,12 +49,18 @@ const LoginView = (props) => {
       );
       break;
   }
-
+  useEffect(() => {
+    Transition.show(
+      <View style={viewStyle.viewContainer}>{formDisplayed}</View>
+    );
+  });
   return (
-    <View style={viewStyle.viewContainer}>
+    <>
       <Text style={viewStyle.appTitle}>BOOK TRACKER</Text>
-      {formDisplayed}
-    </View>
+      <Transition duration={300}>
+        <View></View>
+      </Transition>
+    </>
   );
 };
 

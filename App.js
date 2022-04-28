@@ -5,6 +5,7 @@ import HomeView from "./src/Views/HomeView";
 import LoginView from "./src/Views/LoginView.jsx";
 import FirebaseConfig from "./src/configs/FirebaseConfig";
 import BookDetailView from "./src/Views/BookDetailView";
+
 export default function App() {
   return (
     <NativeRouter>
