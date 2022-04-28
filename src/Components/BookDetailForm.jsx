@@ -6,10 +6,12 @@ import {
   TextInput,
   StyleSheet,
   TouchableHighlight,
+  Alert,
 } from "react-native";
 import { useLocation, useNavigate } from "react-router-native";
 import {
   addTrackedBook,
+  deleteTrackedBook,
   editTrackedBook,
   getTrackedBook,
 } from "../Services/FirestoreServices";
@@ -65,6 +67,13 @@ const BookDetailForm = (props) => {
       backgroundColor: "#2196F3",
       borderRadius: 15,
     },
+    deleteButton: {
+      backgroundColor: "#FF3535",
+      padding: 15,
+      color: "#fff",
+      margin: 5,
+      borderRadius: 5,
+    },
   });
   const navigation = useNavigate();
   const { state } = useLocation();
@@ -103,6 +112,27 @@ const BookDetailForm = (props) => {
       setTotalVolume(result.totalVolume);
       setStatus(result.status);
     });
+  };
+
+  const deleteAlert = () => {
+    Alert.alert(
+      `Book delete confirmation`,
+      `You're about ot delete ${bookName}, are you sure ? `,
+      [
+        {
+          text: "Cancel",
+          onPress: () => {},
+          style: "cancel",
+        },
+        {
+          text: "Confirm",
+          onPress: () => {
+            deleteTrackedBook(bookId);
+            navigation("/home");
+          },
+        },
+      ]
+    );
   };
 
   return (
@@ -164,6 +194,15 @@ const BookDetailForm = (props) => {
           <Text style={styleSheet.btnTxtBase}>
             {bookId != "" ? "Edit" : "Create"}
           </Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+          style={componentStyle.deleteButton}
+          onPress={() => {
+            deleteAlert();
+          }}
+        >
+          <Text style={styleSheet.btnTxtBase}>Delete</Text>
         </TouchableHighlight>
         <TouchableHighlight
           style={styleSheet.buttonBase}

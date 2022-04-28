@@ -2,6 +2,7 @@ import { getAuth } from "firebase/auth";
 import {
   addDoc,
   collection,
+  deleteDoc,
   doc,
   getDoc,
   getDocs,
@@ -60,6 +61,14 @@ export const editTrackedBook = (
     totalVolume: parseInt(totalVolume),
     status: status,
   });
+};
+
+export const deleteTrackedBook = (id) => {
+  const auth = getAuth();
+  const db = getFirestore();
+  const docRef = doc(db, `users/${auth.currentUser.uid}/trackedBooks/${id}`);
+
+  deleteDoc(docRef);
 };
 
 export const getTrackedBook = (id) => {

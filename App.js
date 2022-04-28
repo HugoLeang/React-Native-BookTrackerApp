@@ -1,5 +1,6 @@
-import { Platform, SafeAreaView, StatusBar, StyleSheet } from "react-native";
+import { Platform, StatusBar, StyleSheet } from "react-native";
 import { NativeRouter, Route, Routes } from "react-router-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import HomeView from "./src/Views/HomeView";
 import LoginView from "./src/Views/LoginView.jsx";
 import FirebaseConfig from "./src/configs/FirebaseConfig";
@@ -24,7 +25,7 @@ export default function App() {
 const styles = StyleSheet.create({
   androidSafeArea: {
     flex: 1,
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    //paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   container: {
     flex: 1,
